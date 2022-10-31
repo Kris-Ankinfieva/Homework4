@@ -1,0 +1,41 @@
+﻿// Цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B 
+// (и в нулевую степень). 
+// Использовать свои функции, не использовать Math.Pow
+// 3, 5 -> 243 (3⁵)
+// 2, 4 -> 16 */
+
+Console.Clear();
+
+int InputNumber(string msg)
+{
+    Console.Write(msg);
+    return Convert.ToInt32(Console.ReadLine());
+}
+
+void MathPow(int values1, int values2)
+{
+    double result = 1;
+    if (values2 >= 0)
+    {
+        for (int i = 0; i < values2; i++)
+        {
+            result = result * values1;
+        }
+        Console.WriteLine($"{values1}^{values2} -> {result}");
+    }
+    else
+    {
+        if (values2 < 0)
+        {
+            for (int j = 0; j < values2 * -1; j++)
+            {
+                result = result * values1;
+            }
+        }
+        Console.WriteLine($"{values1}^{values2} -> {1 / result}");
+    }
+}
+
+int numberOne = InputNumber("Введите первое число: ");
+int numberTwo = InputNumber("Введите второе число: ");
+MathPow(numberOne, numberTwo);
